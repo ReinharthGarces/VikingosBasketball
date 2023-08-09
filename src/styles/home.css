@@ -1,7 +1,8 @@
 section{
   display: flex;
-  width: 600px;
-  height: 430px;
+  width: 70vw;
+  height: 70vh;
+  
 }
 
 section img{
@@ -9,7 +10,8 @@ section img{
   flex-grow: 1;
   object-fit: cover;
   opacity: .8;
-  transition: 1s;
+  transition: 500ms;
+  border-radius: 10px 10px;
 }
 
 section img:hover {
@@ -19,4 +21,9 @@ section img:hover {
   filter: contrast(120%);
 }
 
-
+.body {
+  background-image: url('../public/VikingosLogo.png'); /* Cambia la ruta a la ubicación de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el elemento */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center center; /* Centra la imagen horizontal y verticalmente */
+}
