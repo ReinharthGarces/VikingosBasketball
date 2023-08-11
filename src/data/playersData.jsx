@@ -1,4 +1,3 @@
-// data/playersData.js
 
 export const playersData = [
   {
@@ -6,48 +5,95 @@ export const playersData = [
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
   {
-    id: 1,
+    id: 2,
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
   {
-    id: 1,
+    id: 3,
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
   {
-    id: 1,
+    id: 4,
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
   {
-    id: 1,
+    id: 5,
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
   {
-    id: 1,
+    id: 6,
     name: 'Jugador 1',
     position: 'Delantero',
     age: 25,
-    team: 'Vikingos FC',
-    imageUrl: 'url-de-la-imagen-1.jpg', // Agrega aquí la URL o ruta de la imagen
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
   },
-  // Agrega más objetos para más jugadores
+  {
+    id: 7,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ },
+ {
+    id: 8,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ },
+ {
+    id: 9,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ },
+ {
+    id: 10,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ },
+ {
+    id: 11,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ },
+ {
+    id: 12,
+    name: 'Jugador 1',
+    position: 'Delantero',
+    age: 25,
+    team: 'Vikingos Basketball',
+    imageUrl: 'melo6.jpg',
+ }
 ];

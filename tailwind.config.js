@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      colors: {
-        vino: {
-          500: '#A10D3D', // Color principal de vinotinto
-        },
-        test1: {
-          500: '#8E0E00', // Color test1
-        },
-        test2: {
-          500: '#1F1C18', // Color test2
-        },
+      backgroundImage: {
+        'background': "url('VkingosLogo.png)"
       },
-    },
+      colors: {
+      'first-color': '#8E0E00',
+      'second-color': '#1F1C18'
+    }
   },
   plugins: [],
-};
+ }
+}
+

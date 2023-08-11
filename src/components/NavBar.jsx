@@ -10,20 +10,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-blue-400 to-purple-500 p-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div>
-        <img src="VikingosLogo.png" alt="Logo Vikingos" className="w-36 h-auto"></img>
-        </div>
-        <div className="logo text-4xl font-semibold w-36 p-4">
-          Vikingos
-        </div>
+    <nav className="bg-gradient-to-r from-red-600 to-red-950 p-4">
+      <div className="max-w-8xl mx-auto p-5 flex items-end justify-between">
+        <Link to="/">
+          <img src="VikingosLogo.png" alt="Logo Vikingos" className="w-1/6 h-auto"></img>
+        </Link>
         {/* Barra de navegación para dispositivos de escritorio */}
         <ul className="hidden md:flex space-x-4">
           <li>
             <Link
               to="/"
-              className="text-white hover:text-yellow-300 transition duration-300"
+              className="text-white text-1xl font-bold hover:text-yellow-300 transition duration-300"
             >
               Inicio
             </Link>
@@ -31,7 +28,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/results"
-              className="text-white hover:text-yellow-300 transition duration-300"
+              className="text-white text-1xl font-bold hover:text-yellow-300 transition duration-300"
             >
               Resultados
             </Link>
@@ -39,7 +36,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/players"
-              className="text-white hover:text-yellow-300 transition duration-300"
+              className="text-white text-1xl font-bold hover:text-yellow-300 transition duration-300"
             >
               Jugadores
             </Link>

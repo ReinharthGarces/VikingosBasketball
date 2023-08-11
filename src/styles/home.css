@@ -21,9 +21,4 @@ section img:hover {
   filter: contrast(120%);
 }
 
-.body {
-  background-image: url('../public/VikingosLogo.png'); /* Cambia la ruta a la ubicación de tu imagen */
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el elemento */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-position: center center; /* Centra la imagen horizontal y verticalmente */
-}
+ 
