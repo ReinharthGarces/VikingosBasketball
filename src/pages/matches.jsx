@@ -13,10 +13,10 @@ const MatchResult = ({ match }) => {
       <p className="text-gray-600 mb-1">{match.date}</p>
       <div className="grid grid-cols-4 gap-2 mt-4">
         {match.teamAPoints.map((pointsA, index) => (
-          <div key={index} className="text-center">
-            <p>{index + 1} Cuarto </p>
+          <div key={index} className=" text-center">
+            <p className="font-bold text-2xl p-2">{index + 1}º </p>
             <p className="font-semibold">{pointsA}</p>
-            <p className="font-semibold">{match.teamBPoints[index]}</p>
+            <p className="font-semibold p-2">{match.teamBPoints[index]}</p>
           </div>
         ))}
       </div>
