@@ -6,6 +6,7 @@ import Results from './pages/matches';
 import Players from './pages/players';
 import PlayerStats from './pages/playerStats';
 import MatchDetails from './pages/MatchDetails';
+import AddMatchForm from './pages/addMatchForm';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/results/:id" element={<MatchDetails />} />
         <Route path="/players" element={<Players />} />
         <Route path="/players/:id" element={<PlayerStats />} />
+        <Route path="/addmatch" element={<AddMatchForm />} />
       </Routes>
     </Router>
   );
