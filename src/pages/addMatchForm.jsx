@@ -3,29 +3,35 @@ import { matches } from '../data/gamesData';
 import { playersData } from '../data/playersData';
 
 const AddMatchForm = () => {
-  const [teamA, setTeamA] = useState('');
   const [teamB, setTeamB] = useState('');
   const [date, setDate] = useState('');
   const [teamAPlayers, setTeamAPlayers] = useState(playersData.map(player =>
      ({ ...player, minutes: 0, points: 0 })));
 
+  const handleTeamBChange = (event) => {
+    setTeamB(event.target.value);
+  };
+
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const newMatch = {
       id: matches.length + 1,
-      teamA,
+      teamA: 'Vikingos', // Siempre 'Vikingos' según tu requerimiento
       teamB,
       date,
       teamAPlayers,
       // Agrega más propiedades según tus necesidades
     };
 
+    // Agrega el nuevo partido al array de partidos (matches)
     matches.push(newMatch);
 
-// Limpia los campos después de enviar el formulario
-    setTeamA('');
+    // Limpia los campos después de enviar el formulario
     setTeamB('');
     setDate('');
     setTeamAPlayers([]);
@@ -43,29 +49,33 @@ const AddMatchForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Agregar nuevo partido</h2>
-        <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg shadow-md">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="flex flex-col">
-              <label htmlFor="teamA">Equipo A</label>
-              <input type="text" id="teamA" value={teamA} onChange={(e) => setTeamA(e.target.value)} />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="teamB">Equipo B</label>
-              <input type="text" id="teamB" value={teamB} onChange={(e) => setTeamB(e.target.value)} />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="date">Fecha</label>
-              <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            </div>
+    <div className="min-h-screen bg-gray-100 p-10">
+    <div className="max-w-7xl mx-auto">
+      <h2 className="text-4xl font-bold m-10 p-4 text-center">Agregar nuevo partido</h2>
+      <form onSubmit={handleSubmit} className="bg-white p-14 rounded-lg shadow-md">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+         <div className="flex flex-col text-center">
+            <label htmlFor="teamA" className='text-2xl font-bold'>Equipo A</label>
+            <input className="text-center" type="text" id="teamA" value="Vikingos" readOnly />
+         </div>
+          <div className="flex flex-col text-center">
+            <label htmlFor="teamB" className='text-2xl font-bold'>Equipo B</label>
+            <input className="text-center" placeholder="Ingrese equipo rival..."  type="text" id="teamB" value={teamB} onChange={(e) => setTeamB(e.target.value)} />
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse border border-gray-400 my-4">
+          <div className="text-start p-2 mt-2 ml-6">
+            <label htmlFor="lugar" className="font-bold alignt-center text-xl">Lugar:    </label>
+            <input className="text-center" placeholder="  Ingrese club del partido..." type="text" id="lugar"></input>
+         </div>
+          <div className="text-end p-2 mt-2 mr-4">
+            <label htmlFor="date">Fecha</label>
+            <input className="font-bold text-end" type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-auto border-collapse border border-gray-600 m-8">
               <thead>
                 <tr>
-                  <th className="border border-gray-400 p-2">Jugador</th>
+                  <th className="border border-gray-400 w-18 px-2 py-1">Jugador</th>
                   <th className="border border-gray-400 p-2">MIN</th>
                   <th className="border border-gray-400 p-2">PTS</th>
                   <th className="border border-gray-400 p-2">TL</th>
@@ -89,60 +99,60 @@ const AddMatchForm = () => {
               <tbody>
                 {teamAPlayers.map((player) => (
                   <tr key={player.id}>
-                    <td className="border border-gray-400 p-2">{player.name}</td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.minutes || ''} onChange={(e) => handlePlayerStatChange(player.id, 'minutes', e.target.value)}/>
+                    <td className="border border-gray-400 p-2 text-center text-red-950 font-bold">{player.name}</td>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="00:00" className="w-full p-3" value={player.minutes || ''} onChange={(e) => handlePlayerStatChange(player.id, 'minutes', e.target.value)}/>
+                    </td>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.points || ''} onChange={(e) => handlePlayerStatChange(player.id, 'points', e.target.value)}/>
+                    </td>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.tl || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tl', e.target.value)}/>
+                    </td>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0 %" className="w-full p-3" value={player.tlp || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tlp', e.target.value)}/> 
                     </td>
                     <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.points || ''} onChange={(e) => handlePlayerStatChange(player.id, 'points', e.target.value)}/>
+                      <input type="text" placeholder="0"className="w-full p-3" value={player.t2 || ''} onChange={(e) => handlePlayerStatChange(player.id, 't2', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.tl || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tl', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.t2p || ''} onChange={(e) => handlePlayerStatChange(player.id, 't2p', e.target.value)}/> 
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.tlp || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tlp', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.t3 || ''} onChange={(e) => handlePlayerStatChange(player.id, 't3', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.t2 || ''} onChange={(e) => handlePlayerStatChange(player.id, 't2', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0"className="w-full p-3" value={player.t3p || ''} onChange={(e) => handlePlayerStatChange(player.id, 't3p', e.target.value)}/> 
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.t2p || ''} onChange={(e) => handlePlayerStatChange(player.id, 't2p', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.reb || ''} onChange={(e) => handlePlayerStatChange(player.id, 'reb', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.t3 || ''} onChange={(e) => handlePlayerStatChange(player.id, 't3', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.ro || ''} onChange={(e) => handlePlayerStatChange(player.id, 'ro', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.t3p || ''} onChange={(e) => handlePlayerStatChange(player.id, 't3p', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.rd || ''} onChange={(e) => handlePlayerStatChange(player.id, 'rd', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.reb || ''} onChange={(e) => handlePlayerStatChange(player.id, 'reb', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.ast || ''} onChange={(e) => handlePlayerStatChange(player.id, 'ast', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.ro || ''} onChange={(e) => handlePlayerStatChange(player.id, 'ro', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.pd || ''} onChange={(e) => handlePlayerStatChange(player.id, 'pd', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.rd || ''} onChange={(e) => handlePlayerStatChange(player.id, 'rd', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.rb || ''} onChange={(e) => handlePlayerStatChange(player.id, 'rb', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.ast || ''} onChange={(e) => handlePlayerStatChange(player.id, 'ast', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.tap || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tap', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.pd || ''} onChange={(e) => handlePlayerStatChange(player.id, 'pd', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.fp || ''} onChange={(e) => handlePlayerStatChange(player.id, 'fp', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.rb || ''} onChange={(e) => handlePlayerStatChange(player.id, 'rb', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player['+/-'] || ''} onChange={(e) => handlePlayerStatChange(player.id, '+/-', e.target.value)}/>
                     </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.tap || ''} onChange={(e) => handlePlayerStatChange(player.id, 'tap', e.target.value)}/>
-                    </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.fp || ''} onChange={(e) => handlePlayerStatChange(player.id, 'fp', e.target.value)}/>
-                    </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player['+/-'] || ''} onChange={(e) => handlePlayerStatChange(player.id, '+/-', e.target.value)}/>
-                    </td>
-                    <td className="border border-gray-400 p-2">
-                      <input type="number" value={player.val || ''} onChange={(e) => handlePlayerStatChange(player.id, 'val', e.target.value)}/>
+                    <td className="border border-gray-400 p-3">
+                      <input type="text" placeholder="0" className="w-full p-3" value={player.val || ''} onChange={(e) => handlePlayerStatChange(player.id, 'val', e.target.value)}/>
                     </td>
                   </tr>
                 ))}
@@ -150,9 +160,9 @@ const AddMatchForm = () => {
             </table>
           </div>
 
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-            Agregar partido
-          </button>
+          <div className="flex justify-center mt-2">
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded text-lg"> Agregar partido </button>
+          </div> 
         </form>
       </div>
     </div>

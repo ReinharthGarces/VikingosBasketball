@@ -21,9 +21,9 @@ const PlayerStats = () => {
 
   // Filtrar partidos en los que el jugador participó
   const partidosDelJugador = matches.filter(match =>
-    match.teamAPlayers[playerId - 1]?.minutes > 0 || match.teamBPlayers[playerId - 1]?.minutes > 0
+    match.teamAPlayers[playerId - 1]?.minutes > 0
   );
-
+  
   console.log(partidosDelJugador);
   
   // Calcular promedios
